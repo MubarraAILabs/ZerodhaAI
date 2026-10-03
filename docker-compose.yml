@@ -1,0 +1,24 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zerodha-ai-platform
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - HOST=0.0.0.0
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - NEON_DATABASE_URL=${NEON_DATABASE_URL:-}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-zerodha-ai-super-secret-key-2026-production}
+    env_file:
+      - path: .env
+        required: false
+    restart: unless-stopped
+    volumes:
+      - app_data:/app/data
+
+volumes:
+  app_data:
+    driver: local
