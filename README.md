@@ -8,29 +8,6 @@
 
 ## 1. Executive Summary & Problem Framing
 
-<div align="center">
-
-### 🌐 Live Platform & Video Walkthrough
-[![Deployed Website](https://img.shields.io/badge/🚀_Deployed_Website-Live_on_Render-2ea44f?style=for-the-badge&logo=render&logoColor=white)](https://zerodha-ai-financial-intelligence-welg.onrender.com/)
-[![Watch Video Walkthrough](https://img.shields.io/badge/▶_WATCH_FULL_VIDEO_DEMO-Google_Drive-red?style=for-the-badge&logo=youtube&logoColor=white)](https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing)
-[![Repository MP4](https://img.shields.io/badge/📁_Download_Local_MP4-docs%2Fvideo-blue?style=for-the-badge&logo=vlcmediaplayer&logoColor=white)](docs/video/video.mp4)
-
-*Click **Deployed Website** to try the live application, or click the red badge to stream the video demo.*
-
-</div>
-
-> If links don't work:
->1. Video Link: https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing
->2. Deplyed Website: https://zerodha-ai-financial-intelligence-welg.onrender.com/ 
-
-Retail investors on modern brokerage platforms have immediate access to numbers, P&L, stock prices, and transaction histories. However, during volatile market conditions, they frequently lack the time, analytical context, or confidence to interpret:
-- **Why** their portfolio gained or lost value today.
-- **Where** unmanaged risks (e.g. >40% single-sector concentration, peak drawdowns) are compounding.
-- **Which** specific holdings or corporate events drove portfolio movement.
-- **What** safe, non-execution review actions they should consider next.
-
-The **Zerodha AI Financial Intelligence Platform** bridges this gap. It implements a governed, deterministic intelligence pipeline:
-$$\text{Portfolio Input} \longrightarrow \text{Market/Internal Fetch} \longrightarrow \text{MCP Tool Unification} \longrightarrow \text{Deterministic Analytics} \longrightarrow \text{LLM Reasoning (Gemini)} \longrightarrow \text{Explainable Recommendations}$$
 
 ### Executive Alignment Matrix
 
