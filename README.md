@@ -8,6 +8,7 @@
 
 ## 1. Executive Summary & Problem Framing
 
+<<<<<<< HEAD
 <div align="center">
 
 ### 🌐 Live Platform & Video Walkthrough
@@ -31,6 +32,8 @@ Retail investors on modern brokerage platforms have immediate access to numbers,
 
 The **Zerodha AI Financial Intelligence Platform** bridges this gap. It implements a governed, deterministic intelligence pipeline:
 $$\text{Portfolio Input} \longrightarrow \text{Market/Internal Fetch} \longrightarrow \text{MCP Tool Unification} \longrightarrow \text{Deterministic Analytics} \longrightarrow \text{LLM Reasoning (Gemini)} \longrightarrow \text{Explainable Recommendations}$$
+=======
+>>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
 
 ### Executive Alignment Matrix
 

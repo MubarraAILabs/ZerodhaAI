@@ -3,7 +3,11 @@ FROM node:20-alpine AS frontend-builder
 WORKDIR /app/frontend
 
 COPY frontend/package.json frontend/package-lock.json* ./
+<<<<<<< HEAD
 RUN npm ci
+=======
+RUN npm ci || npm install
+>>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
 
 
 COPY frontend/ ./
@@ -43,6 +47,12 @@ RUN mkdir -p /app/data
 EXPOSE 5000
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
+<<<<<<< HEAD
   CMD-SHELL curl -f "http://localhost:${PORT:-5000}/api/operations/health" || exit 1
 
 CMD ["sh", "-c", "exec gunicorn --bind 0.0.0.0:${PORT:-5000} --workers 2 --threads 4 --timeout 120 backend.app:app"]
+=======
+  CMD curl -f http://localhost:5000/api/operations/health || exit 1
+
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "--threads", "4", "--timeout", "120", "backend.app:app"]
+>>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13

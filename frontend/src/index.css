@@ -108,7 +108,11 @@ button { cursor: pointer; }
 .top-actions { display:flex; align-items:center; gap:8px; }
 .market-chip { display:flex; align-items:center; gap:6px; padding:8px 10px; border:1px solid var(--border-subtle); border-radius:10px; background:var(--bg-surface); font-size:10px; color:var(--text-secondary); }
 .market-chip svg { color:var(--accent-green); }
+<<<<<<< HEAD
 .market-chip strong { color:var(--accent-green); font-size:8px; text-transform:uppercase; }
+=======
+.market-chip strong { color:var(--text-primary); font-size:8px; text-transform:uppercase; }
+>>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
 .top-select, .portfolio-picker { height:36px; border:1px solid var(--border-subtle); background:var(--bg-surface); color:var(--text-primary); border-radius:10px; font-size:10px; }
 .top-select { padding:0 9px; }
 .portfolio-picker { position:relative; display:flex; align-items:center; gap:5px; padding:0 8px; }
@@ -143,7 +147,38 @@ button { cursor: pointer; }
 [class*="text-[#818cf8]"], [class*="text-[#6366f1]"], [class*="text-[#38bdf8]"], [class*="text-[#8B5CF6]"], [class*="text-[#7C3AED]"] { color:var(--accent-orange) !important; }
 [class*="text-[#10b981]"], [class*="text-[#00E676]"], [class*="text-[#059669]"] { color:var(--accent-green) !important; }
 [class*="bg-[#10b981]"] { background-color:var(--accent-green) !important; }
+<<<<<<< HEAD
 [class*="bg-[#818cf8]"], [class*="bg-[#6366f1]"], [class*="bg-[#8B5CF6]"] { background-color:var(--accent-orange) !important; }
+=======
+[class*="bg-[#818cf8]"], [class*="bg-[#6366f1]"], [class*="bg-[#8B5CF6]"], [class*="bg-[#7C3AED]"] { background-color:var(--accent-orange) !important; }
+
+/* Strong-fill contrast: legacy components sometimes pair a saturated fill with a
+   dark text utility. Keep text and icons readable on solid orange/green surfaces. */
+[class*="bg-[#10b981]"]:not([class*="/"]),
+[class*="bg-[#00E676]"]:not([class*="/"]),
+[class*="bg-[#059669]"]:not([class*="/"]),
+[class*="bg-[#818cf8]"]:not([class*="/"]),
+[class*="bg-[#6366f1]"]:not([class*="/"]),
+[class*="bg-[#8B5CF6]"]:not([class*="/"]),
+[class*="bg-[#7C3AED]"]:not([class*="/"]) {
+  color:#fff !important;
+}
+
+[class*="bg-[#10b981]"]:not([class*="/"]) svg,
+[class*="bg-[#00E676]"]:not([class*="/"]) svg,
+[class*="bg-[#059669]"]:not([class*="/"]) svg,
+[class*="bg-[#818cf8]"]:not([class*="/"]) svg,
+[class*="bg-[#6366f1]"]:not([class*="/"]) svg,
+[class*="bg-[#8B5CF6]"]:not([class*="/"]) svg,
+[class*="bg-[#7C3AED]"]:not([class*="/"]) svg {
+  color:currentColor !important;
+  stroke:currentColor !important;
+}
+
+/* New theme solid fills get the same guarantee. */
+.bg-accent-green, .bg-accent-orange { color:#fff !important; }
+.bg-accent-green svg, .bg-accent-orange svg { color:currentColor !important; stroke:currentColor !important; }
+>>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
 
 @media (max-width: 1100px) {
   .app-sidebar { width:220px; flex-basis:220px; }

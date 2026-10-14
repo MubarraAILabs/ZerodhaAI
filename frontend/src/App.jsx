@@ -93,7 +93,11 @@ function AppContent() {
       <aside className={`app-sidebar ${mobileOpen ? 'is-open' : ''}`}>
         <div className="brand-lockup" onClick={() => go('dashboard')}>
           <div className="brand-mark"><Leaf size={21} strokeWidth={2.6} /></div>
+<<<<<<< HEAD
           <div><div className="brand-name">Zerodha<span>AI</span></div><div className="brand-subtitle">Financial Intelligence</div></div>
+=======
+          <div><div className="brand-name">Mubarra<span>AI</span></div><div className="brand-subtitle">Financial Intelligence</div></div>
+>>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
         </div>
 
         <div className="sidebar-profile">
@@ -156,7 +160,11 @@ function AppContent() {
           </main>
         </div>
 
+<<<<<<< HEAD
         <footer className="app-footer"><div><ShieldCheck size={15}/><span>Zerodha AI • Decision-support only • No trade execution</span></div><span>Gemini AI · PostgreSQL/SQLite · Market data</span></footer>
+=======
+        <footer className="app-footer"><div><ShieldCheck size={15}/><span>Mubarra AI • Decision-support only • No trade execution</span></div><span>Gemini AI · PostgreSQL/SQLite · Market data</span></footer>
+>>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
       </section>
 
       <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
