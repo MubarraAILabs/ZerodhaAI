@@ -26,7 +26,15 @@ from mcp_server.server import mcp_server_instance
 
 app = Flask(__name__)
 # Enable CORS for frontend integration
-CORS(app)
+
+frontend_url = os.getenv(
+    "FRONTEND_URL",
+    "http://localhost:5173"
+)
+
+CORS(app,
+     origins=[frontend_url],
+    supports_credentials=True)
 
 # Track server start time for operational uptime
 SERVER_START_TIME = time.time()
