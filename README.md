@@ -2,18 +2,17 @@
 
 An AI-assisted portfolio intelligence application that combines deterministic
 portfolio analytics, market data, and explainable AI insights. The platform is
-designed to help investors understand portfolio performance and risk; it does
-not execute trades.
+designed to help investors understand portfolio performance and risk.
 
 ## Live Demo
 
-[![Open the live application](https://img.shields.io/badge/Live%20Application-Render-46a758?style=for-the-badge)](https://zerodha-ai-financial-intelligence-welg.onrender.com/)
+[![Open the live application](https://img.shields.io/badge/Live%20Application-Render-46a758?style=for-the-badge)](https://zerodhaai-frontend.onrender.com/)
 
 Click the workflow image to watch the walkthrough on Google Drive:
 
 [![Watch the Zerodha AI walkthrough](docs/images/end%20to%20end%20workflow.png)](https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing)
 
-[Watch the video on Google Drive](https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing) · [Open the video in this repository](docs/video/zerodhaAI.mp4)
+[Watch the video on Google Drive](https://drive.google.com/file/d/1Uk5Yn287QWwX97zb3oaL-f78aHUKV7SS/view?usp=sharing) · 
 
 ## 1. What the Platform Does
 
@@ -218,6 +217,6 @@ npm run build
 - **Internal Operations Dashboard** monitoring uptime, latency, MCP tool telemetry, and feedback.
 - **Compliance & Regulatory Audit Console** with prompt hashes, model versions, and reviewer sign-offs.
 - **Documentation & Video Suite** (`docs/architecture.md`, `docs/api_documentation.md`, `docs/mcp_tooling.md`, `docs/demo_script.md`, `docs/video/video.mp4`).
-- **Live Video Walkthrough Demo** (linked above in the README + [Google Drive link](https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing)).
-- **Production Cloud Deployment** ([Live on Render](https://zerodha-ai-financial-intelligence-welg.onrender.com/)).
+- **Live Video Walkthrough Demo** (linked above in the README + [Google Drive link](https://drive.google.com/file/d/1Uk5Yn287QWwX97zb3oaL-f78aHUKV7SS/view?usp=sharing)).
+- **Production Cloud Deployment** ([Live on Render](https://zerodhaai-frontend.onrender.com)).
 - **Automated Test Suite** (`tests/`) with unit and edge-case coverage.
