@@ -32,14 +32,13 @@ CORS(app)
 SERVER_START_TIME = time.time()
 
 # JWT Secret Configuration
-<<<<<<< HEAD
 jwt_secret_key = os.getenv("JWT_SECRET_KEY")
 if os.getenv("RAILWAY_ENVIRONMENT") and not jwt_secret_key:
     raise RuntimeError("JWT_SECRET_KEY must be configured in Railway.")
 app.config["JWT_SECRET_KEY"] = jwt_secret_key or "zerodha-ai-super-secret-key-2026"
-=======
+
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "zerodha-ai-super-secret-key-2026")
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
+
 jwt = JWTManager(app)
 bcrypt = Bcrypt(app)
 

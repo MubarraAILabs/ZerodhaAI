@@ -1,274 +1,223 @@
-# Zerodha: AI Financial Intelligence Platform
+# Zerodha AI Financial Intelligence Platform
 
-> **Governed Portfolio Intelligence, MCP Unification & Explainable Recommendations Engine**
-> 
-> *A production-grade, audit-ready AI platform designed to convert raw holdings, live market signals, and news into explainable portfolio insights without uncontrolled trade-execution risk.*
+An AI-assisted portfolio intelligence application that combines deterministic
+portfolio analytics, market data, and explainable AI insights. The platform is
+designed to help investors understand portfolio performance and risk; it does
+not execute trades.
 
----
+## Live Demo
 
-## 1. Executive Summary & Problem Framing
+[![Open the live application](https://img.shields.io/badge/Live%20Application-Render-46a758?style=for-the-badge)](https://zerodha-ai-financial-intelligence-welg.onrender.com/)
 
-<<<<<<< HEAD
-<div align="center">
+Click the workflow image to watch the walkthrough on Google Drive:
 
-### 🌐 Live Platform & Video Walkthrough
-[![Deployed Website](https://img.shields.io/badge/🚀_Deployed_Website-Live_on_Render-2ea44f?style=for-the-badge&logo=render&logoColor=white)](https://zerodha-ai-financial-intelligence-welg.onrender.com/)
-[![Watch Video Walkthrough](https://img.shields.io/badge/▶_WATCH_FULL_VIDEO_DEMO-Google_Drive-red?style=for-the-badge&logo=youtube&logoColor=white)](https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing)
-[![Repository MP4](https://img.shields.io/badge/📁_Download_Local_MP4-docs%2Fvideo-blue?style=for-the-badge&logo=vlcmediaplayer&logoColor=white)](docs/video/video.mp4)
+[![Watch the Zerodha AI walkthrough](docs/images/end%20to%20end%20workflow.png)](https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing)
 
-*Click **Deployed Website** to try the live application, or click the red badge to stream the video demo.*
+[Watch the video on Google Drive](https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing) · [Open the video in this repository](docs/video/zerodhaAI.mp4)
 
-</div>
+## 1. What the Platform Does
 
-> If links don't work:
->1. Video Link: https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing
->2. Deplyed Website: https://zerodha-ai-financial-intelligence-welg.onrender.com/ 
+- **Portfolio analysis:** Summarizes holdings, P&L contributions, allocations,
+  sector concentration, volatility, drawdown, and benchmark-relative performance.
+- **Market intelligence:** Presents market quotes and related market context.
+- **Explainable AI insights:** Generates a portfolio summary, risk analysis, and
+  recommendations with rationales and confidence scores. AI insights are
+  supplementary and do not replace deterministic calculations.
+- **Governed MCP tools:** Exposes portfolio, market, and analytics capabilities
+  through a schema-defined tool registry.
+- **Operations and compliance:** Provides health and operational telemetry,
+  feedback/audit records, prompt hashes, model-version information, and review
+  workflows.
+- **Portfolio import:** Supports importing holdings from a CSV file.
 
-Retail investors on modern brokerage platforms have immediate access to numbers, P&L, stock prices, and transaction histories. However, during volatile market conditions, they frequently lack the time, analytical context, or confidence to interpret:
-- **Why** their portfolio gained or lost value today.
-- **Where** unmanaged risks (e.g. >40% single-sector concentration, peak drawdowns) are compounding.
-- **Which** specific holdings or corporate events drove portfolio movement.
-- **What** safe, non-execution review actions they should consider next.
+This is an informational application, not investment advice. It does not place,
+route, or execute trades.
 
-The **Zerodha AI Financial Intelligence Platform** bridges this gap. It implements a governed, deterministic intelligence pipeline:
-$$\text{Portfolio Input} \longrightarrow \text{Market/Internal Fetch} \longrightarrow \text{MCP Tool Unification} \longrightarrow \text{Deterministic Analytics} \longrightarrow \text{LLM Reasoning (Gemini)} \longrightarrow \text{Explainable Recommendations}$$
-=======
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
-
-### Executive Alignment Matrix
-
-| Requirement Area | Capstone Notion Criteria | Implementation Status in Workspace | Location in Codebase |
-|---|---|---|---|
-| **Core Architecture & Flow** | Governed deterministic intelligence pipeline: Portfolio Ingestion $\to$ Market/Internal Fetch $\to$ MCP Tools $\to$ Deterministic Analytics $\to$ LLM Reasoning $\to$ Explainable Cards | **Implemented & Verified** | `backend/app.py`<br>`docs/architecture.md` |
-| **Model Context Protocol (MCP)** | Standardized, schema-bound MCP server layer uniting tools for data retrieval, risk analytics, and market news | **Implemented (7 Governed Tools)** | `mcp_server/server.py`<br>`mcp_server/tools/`<br>`docs/mcp_tooling.md` |
-| **Deterministic Analytics Engine** | Factual calculation of P&L contribution, historical Max Drawdown, Beta, Volatility, and $>40\%$ sector concentration alerts before LLM prompt assembly | **Implemented (Pandas / NumPy)** | `analytics/portfolioAnalytics.py`<br>`analytics/marketData.py` |
-| **GenAI Reasoning & Guardrails** | LLM (Google Gemini) generating structured plain-language summaries without hallucinated numbers or unauthorized trade executions | **Implemented & Guardrailed** | `ai_workflows/insightGenerator.py` |
-| **Recommendation Engine** | 4 Categorized actionable cards: *Risk Attention*, *Diversification Review*, *Catalyst Monitoring*, *Rebalancing Follow-up* with confidence scores and disclaimers | **Implemented** | `ai_workflows/insightGenerator.py`<br>`frontend/src/components/` |
-| **Fullstack User Experience** | 6 complete product surfaces: Stocks & Benchmarks, F&O/IPO, Mutual Funds/ETFs, Portfolio AI Hub, Operations Dashboard, Compliance & Audit Console | **Implemented (React + Vite + Tailwind)** | `frontend/src/` |
-| **Compliance & Observability** | SHA-256 prompt hashing, model version traceability, SEBI non-advice disclaimers, latency monitoring (p50/p95), compliance officer sign-offs | **Implemented** | `backend/db.py`<br>`frontend/src/components/ComplianceConsole.jsx` |
-| **Database & Ingestion** | Support for Zerodha CSV imports, portfolio snapshots, NeonDB Serverless PostgreSQL + SQLite fallback | **Implemented** | `backend/db.py`<br>`data/portfolio/` |
-| **Testing & CI/CD** | Automated test suite covering analytics, MCP tools, AI schema validations, and edge cases | **Implemented** | `tests/test_analytics.py`<br>`tests/test_mcp_server.py`<br>`tests/test_ai_validation.py`<br>`tests/test_edge_cases.py` |
-| **Deployment Deliverables** | Containerization, deployment guides, API documentation, and presentation demo script | **Implemented** | `Dockerfile`<br>`docker-compose.yml`<br>`docs/api_documentation.md`<br>`docs/demo_script.md` |
-
----
-
-## 2. Product Surfaces
-
-The platform delivers 6 cohesive, production-ready product surfaces:
-
-1. **Stocks & Market Benchmark Hub**: Live NIFTY 50, SENSEX, BANKNIFTY indices, interactive OHLC candlestick charts, and top bluechip gainers/losers.
-2. **F&O & IPO Intelligence Console**: PCR ratios, Max Pain strikes, open interest buildup interpretation, and grey market premium (GMP) IPO tracking.
-3. **Mutual Funds & ETF Analyzer**: Profile-aligned fund suggestions (Flexi-Cap, Mid-Cap, Hybrid, Debt) for balanced capital preservation.
-4. **Investor Portfolio AI Hub**:
-   - **Relative Performance Card**: Portfolio vs. Benchmark return alpha.
-   - **Executive Summary**: Plain-language AI portfolio health overview.
-   - **Risk & Exposure Panel**: Sector concentration alerts (>40%), historical maximum drawdown, and portfolio Beta.
-   - **Market Movement Explainer**: Stock-level P&L contribution breakdown linked to recent corporate news.
-   - **Explainable Recommendation Console**: 4 categorized recommendation cards (*Risk Attention, Diversification Review, Catalyst Monitoring, Rebalancing Follow-up*) with confidence scores, rationales, and regulatory disclaimers.
-5. **Internal Operations & Health Dashboard**: Live monitoring for API latency (p50/p95), error rates, uptime, MCP tool distribution, feedback mix, and interactive MCP tool testing.
-6. **Compliance & Regulatory Audit Console**: Cryptographic SHA-256 prompt hashing, model version traceability, SEBI non-advice verification, and formal compliance officer sign-offs.
-
----
-
-## 3. System Architecture & Tech Stack
+## 2. Architecture
 
 ```mermaid
-graph TD
-    A[Investor / CSV Upload / Account Snapshot] --> B[Flask / FastAPI Backend Gateway]
-    B --> C[(NeonDB Serverless PostgreSQL / SQLite)]
-    B --> D[Market Data Provider / yfinance]
-    B --> E[Governed MCP Server Layer]
-    
-    subgraph MCP Server & Tool Registry
-        E --> T1[portfolio_tools]
-        E --> T2[market_tools]
-        E --> T3[news_tools]
-        E --> T4[analytics_tools]
-    end
-    
-    T4 --> F[Deterministic Analytics Engine]
-    F -->|Drawdown, Volatility, Beta, Concentration| G[Structured Context Builder]
-    T3 -->|Headlines & Sentiment| G
-    
-    G --> H[Google Gemini AI Layer]
-    H --> I[Schema & Guardrail Validation]
-    I --> J[Explainable Recommendation Engine]
-    
-    J --> K[Investor Portfolio Hub]
-    J --> L[Risk & Exposure Panel]
-    J --> M[Internal Operations Dashboard]
-    J --> N[Compliance & Audit Console]
+flowchart LR
+    Investor --> UI[React and Vite frontend]
+    UI --> API[Flask API]
+    API --> DB[(PostgreSQL or SQLite)]
+    API --> Market[Market data]
+    API --> MCP[Governed MCP tools]
+    MCP --> Analytics[Deterministic analytics]
+    Analytics --> Insights[Explainable insight workflow]
+    Insights --> UI
 ```
 
-### Technology Matrix
+The Docker image builds the frontend and serves it from the Flask/Gunicorn
+backend. In production, the UI and API can therefore use the same service and
+domain.
 
-| Component | Technology | Role & Purpose |
-|---|---|---|
-| **Frontend** | React 18 (Vite), Tailwind CSS, Lucide Icons | Responsive investor hub, charts, operations and compliance consoles |
-| **Backend API** | Python (Flask / Flask-CORS / Flask-JWT) | REST API routing, JWT auth, database connectors, and audit trail |
-| **MCP Integration** | Model Context Protocol (v2025-06-18) | Schema-bound tool access for portfolio, market, news, and risk analytics |
-| **Analytics Engine** | Python (Pandas, NumPy) | Deterministic calculation of P&L, concentration, drawdown, volatility, beta |
-| **LLM Reasoning** | Google Gemini 1.5/3.5 Flash (`@google/genai`) | Structured plain-language explanations and recommendation generation |
-| **Database** | NeonDB PostgreSQL / SQLite Hybrid | User accounts, portfolio holdings JSONB, compliance logs, MCP execution stats |
-| **Deployment** | Vercel (Frontend) & Render / Railway (Backend) | Cloud deployment with environment variable isolation |
+## 3. Technology
 
----
+- **Frontend:** React, Vite, Tailwind CSS, and Lucide icons
+- **Backend:** Python, Flask, Flask-CORS, Flask-JWT-Extended, and Gunicorn
+- **Analytics:** Pandas and NumPy
+- **Database:** PostgreSQL when `DATABASE_URL` or `NEON_DATABASE_URL` is set;
+  SQLite is available as a local fallback
+- **AI:** Google Gemini through the Google Gen AI SDK (optional API key)
+- **Deployment:** Docker; Railway and Render deployment configuration/documentation
 
-## 4. Model Context Protocol (MCP) Server
+## 4. Run Locally
 
-The platform includes a dedicated, schema-bound **Model Context Protocol (MCP)** Server implementation (`mcp_server/`) conforming to protocol specification `v2025-06-18`.
+### Prerequisites
 
-![Overview of the 7 Governed MCP Tools](docs/images/mcp_tools_overview.png)
+- Python 3.11 or newer
+- Node.js 20 or newer and npm
 
-### Governed Tool Registry
+### Configure the backend
 
-| Tool Name | Category | Primary Function | Return Output / Telemetry |
-|---|---|---|---|
-| **`lookup_portfolio`** | `portfolio` | Fetches normalized holdings snapshot, allocation weights & risk profile | NeonDB PostgreSQL JSONB / Local JSON fallback |
-| **`validate_portfolio_completeness`** | `portfolio` | Pre-inference gate verifying required fields (shares, avg buy, current price) | Completeness score (0-100%) & validation report |
-| **`fetch_market_quotes`** | `market` | Real-time LTP, % change, 52W High/Low and day ranges | Live `yfinance` fast-info quotes with cache fallback |
-| **`fetch_historical_ohlc`** | `market` | Historical daily Open-High-Low-Close candle series & volume | Interactive candlestick chart time-series payload |
-| **`fetch_ticker_sentiment_news`** | `news` | Symbol-specific news headlines with automated sentiment tagging | Recent headlines with POSITIVE/NEGATIVE/NEUTRAL tags |
-| **`compute_portfolio_metrics`** | `analytics` | Deterministic mathematical calculation of P&L, contribution, beta, drawdown | Grounded factual analytics payload for LLM reasoning |
-| **`calculate_risk_alerts`** | `analytics` | Prudential threshold rules (>40% sector concentration, >22% volatility) | Governed risk warnings and critical alert levels |
+From the repository root, create a virtual environment and install the backend
+dependencies:
 
----
+```powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r backend/requirements.txt
+Copy-Item .env.example .env
+```
 
-## 5. How to Run the Platform
+On macOS or Linux, use:
 
-You can run the entire platform either using **Docker (Recommended)** for single-command fullstack setup or via **Local Development Mode**.
-
----
-
-### Method 1: Run with Docker (Recommended)
-
-The platform includes a production multi-stage [`Dockerfile`](file:///e:/zerodha-ai-financial-intelligence-platform/Dockerfile) (Node.js 20 build stage + Python 3.11 runtime stage) and a [`docker-compose.yml`](file:///e:/zerodha-ai-financial-intelligence-platform/docker-compose.yml).
-
-#### Option A: Using Docker Compose (Simplest)
-
-1. Ensure your `.env` file is present in the project root:
-   ```bash
-   # Verify .env exists and contains GEMINI_API_KEY and NEON_DATABASE_URL
-   ```
-
-2. Build and start the unified fullstack container:
-   ```bash
-   docker compose up --build
-   ```
-
-3. Open your browser and navigate to:
-   - **Fullstack Web Application**: [http://localhost:5000](http://localhost:5000)
-   - **Operations Health Endpoint**: [http://localhost:5000/api/operations/health](http://localhost:5000/api/operations/health)
-
-4. To stop the container:
-   ```bash
-   docker compose down
-   ```
-
-#### Option B: Using Docker CLI Directly
-
-1. Build the unified Docker image:
-   ```bash
-   docker build -t zerodha-ai-platform .
-   ```
-
-2. Run the container with your `.env` file:
-   ```bash
-   docker run -d -p 5000:5000 --name zerodha-ai --env-file .env zerodha-ai-platform
-   ```
-
-3. View live container logs:
-   ```bash
-   docker logs -f zerodha-ai
-   ```
-
-4. Stop and remove the container:
-   ```bash
-   docker stop zerodha-ai && docker rm zerodha-ai
-   ```
-
----
-
-### Method 2: Local Development Mode (Without Docker)
-
-#### Prerequisites
-- **Python 3.10+**
-- **Node.js 18+** & **npm**
-
-#### Step 1: Backend Setup
 ```bash
-# 1. Open a terminal in the project root directory
-cd zerodha-ai-financial-intelligence-platform
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r backend/requirements.txt
+cp .env.example .env
+```
 
-# 2. (Optional) Create and activate a Python virtual environment
-python -m venv venv
-# On Windows:
-.\venv\Scripts\activate
-# On Linux/macOS:
-# source venv/bin/activate
+Edit `.env` as needed. `GEMINI_API_KEY` enables Gemini-powered insights. For
+persistent local data across restarts, configure a PostgreSQL URL in
+`DATABASE_URL` or `NEON_DATABASE_URL`; otherwise the app uses SQLite.
 
-# 3. Install Python backend & analytics dependencies
-pip install -r backend/requirements.txt
+### Start the app
 
-# 4. Start the Flask API & Governed MCP Backend Server
+Open two terminals at the repository root.
+
+**Terminal 1 — API:**
+
+```bash
 python backend/app.py
 ```
-> The Backend API server will start at: **http://localhost:5000**
 
-#### Step 2: Frontend Setup
+The API runs at `http://localhost:5000`.
+
+**Terminal 2 — frontend:**
+
 ```bash
-# 1. Open a second terminal window and navigate to the frontend directory
 cd frontend
-
-# 2. Install Node.js dependencies
-npm install
-
-# 3. Start the Vite React development server
+npm ci
 npm run dev
 ```
-> The Frontend Single Page Application will start at: **http://localhost:5173** (with automated API reverse proxy to backend port 5000).
 
----
+Open the local URL printed by Vite (typically `http://localhost:5173`). The Vite
+development server proxies `/api` requests to the Flask backend.
 
-## 6. Automated Test Suite
+## 5. Configuration
 
-Run the full automated test suite covering analytics math, MCP server protocols, AI structured output schemas, and boundary edge cases:
+Use `.env.example` as a template for a local `.env` file. Never commit real
+credentials or production secrets.
+
+| Variable | Purpose |
+| --- | --- |
+| `GEMINI_API_KEY` | Optional Google AI Studio key for AI-generated insights |
+| `DATABASE_URL` | PostgreSQL connection URL, including Railway's standard variable |
+| `NEON_DATABASE_URL` | Alternate PostgreSQL connection URL |
+| `JWT_SECRET_KEY` | Secret used to sign authentication tokens; set a strong, unique value in production |
+| `PORT` | HTTP port; Railway supplies this automatically |
+| `HOST` | Local Flask bind address |
+| `FLASK_DEBUG` | Enables Flask debug mode for local development only |
+| `VITE_API_URL`, `VITE_API_BASE_URL` | Optional frontend API URL overrides; leave unset for same-domain deployments |
+
+## 6. Deploy
+
+### Railway
+
+The repository root contains `railway.json` and a Dockerfile for a single
+frontend-plus-backend service.
+
+1. Push the repository to GitHub.
+2. In Railway, create a project and deploy the GitHub repository. Keep the
+   service root directory at the repository root.
+3. Add a Railway PostgreSQL service. In the app service, set `DATABASE_URL` to
+   the PostgreSQL service's connection-string reference (for example,
+   `${{Postgres.DATABASE_URL}}`, using the actual service name).
+4. Set `JWT_SECRET_KEY` to a strong, unique secret. Set `GEMINI_API_KEY` if you
+   want Gemini-powered insights.
+5. Deploy and wait for the `/api/operations/health` health check to pass.
+6. Generate a public domain in the app service's Networking settings if Railway
+   has not already created one.
+
+The built-in frontend and API share the Railway domain; do not set
+`VITE_API_URL` for this setup. PostgreSQL is recommended for persistent
+production data. SQLite fallback data is ephemeral unless a Railway volume is
+mounted at `/app/data`.
+
+### Docker
+
+Build and run the combined app from the repository root:
 
 ```bash
-# Run all unit and integration tests
-python -m unittest discover tests
-
-# Or run specific test suites individually:
-python -m unittest tests/test_analytics.py       # P&L, Beta, Drawdown & Concentration math
-python -m unittest tests/test_mcp_server.py       # MCP Tool registry & execution schemas
-python -m unittest tests/test_ai_validation.py    # Structured JSON schemas & card guards
-python -m unittest tests/test_edge_cases.py       # Missing fields, zero balance & volatility spikes
+docker build -t zerodha-ai-platform .
+docker run --env-file .env -p 5000:5000 zerodha-ai-platform
 ```
 
----
+Open `http://localhost:5000`. Set `PORT` in the container environment when
+running on a platform that assigns a port automatically.
+
+### Render
+
+Create a Render Web Service connected to the repository, select the Docker
+runtime, and use the root `Dockerfile`. Configure `JWT_SECRET_KEY`, and add
+`GEMINI_API_KEY` and a PostgreSQL `DATABASE_URL` if those services are used.
+
+## Tests
+
+The tests use Python's built-in `unittest` runner:
+
+```bash
+python -m unittest discover -s tests -v
+python -m unittest discover -s backend -p "test_all_features.py" -v
+```
+
+Build the production frontend with:
+
+```bash
+cd frontend
+npm ci
+npm run build
+```
+
+## Project Structure
+
+```text
+.
+├── ai_workflows/    # AI insight generation and guardrails
+├── analytics/       # Portfolio and market analytics
+├── backend/         # Flask API, database setup, and backend tests
+├── data/            # Sample portfolios and local development data
+├── deployment/      # Hosting and deployment guidance
+├── docs/            # Diagrams, walkthrough video, and project documentation
+├── frontend/        # React/Vite application
+├── mcp_server/      # MCP server, registry, and tool implementations
+├── tests/           # Analytics, AI validation, MCP, and edge-case tests
+├── Dockerfile
+└── railway.json
+```
 
 ## 7. Submission Deliverables Checklist
 
-- [x] **Complete GitHub Repository** with clear modular folder structure (`frontend/`, `backend/`, `mcp_server/`, `ai_workflows/`, `analytics/`, `docs/`, `tests/`, `deployment/`).
-- [x] **Environment Configuration** (`.env`) with complete configuration parameters.
-- [x] **Governed MCP Server** with schema-bound tool registry and live execution console.
-- [x] **Deterministic Analytics Engine** calculating P&L contribution, concentration alerts, max drawdown, volatility, and benchmark Beta.
-- [x] **AI Workflow & Explainable Recommendations** with 4 distinct card categories and strict non-execution guardrails.
-- [x] **Internal Operations Dashboard** monitoring uptime, latency, MCP tool telemetry, and feedback.
-- [x] **Compliance & Regulatory Audit Console** with prompt hashes, model versions, and reviewer sign-offs.
-- [x] **Documentation & Video Suite** (`docs/architecture.md`, `docs/api_documentation.md`, `docs/mcp_tooling.md`, `docs/demo_script.md`, `docs/video/video.mp4`).
-- [x] **Live Video Walkthrough Demo** (Embedded in README + Google Drive link).
-- [x] **Production Cloud Deployment** ([Live on Render](https://zerodha-ai-financial-intelligence-welg.onrender.com/)).
-- [x] **Automated Test Suite** (`tests/`) with unit and edge-case coverage.
-
----
-
-## 8. Team & Contribution Ownership
-
-| Role | Lead | Responsibilities |
-|---|---|---|
-| **Product & Business Architecture** | Mubarra Shaikh | Dossier alignment, SEBI regulatory non-advice framing, UX workflows |
-| **AI Workflows & MCP Server** | Mubarra Shaikh | Gemini prompt engineering, MCP tool schemas, structured output validation |
-| **Backend & Ingestion APIs** | Mubarra Shaikh | Flask REST APIs, JWT authentication, NeonDB/SQLite persistence, audit trail |
-| **Frontend & UI Surfaces** | Mubarra Shaikh | Multi-tab React app, recommendation cards, operations and compliance consoles |
-| **QA & Analytics Testing** | Mubarra Shaikh | Deterministic metrics formulas, test suites, edge case validation |
+- **Complete GitHub Repository** with clear modular folder structure (`frontend/`, `backend/`, `mcp_server/`, `ai_workflows/`, `analytics/`, `docs/`, `tests/`, `deployment/`).
+- **Environment Configuration** (`.env`) with complete configuration parameters. Use `.env.example` as the template and keep secrets out of version control.
+- **Governed MCP Server** with schema-bound tool registry and live execution console.
+- **Deterministic Analytics Engine** calculating P&L contribution, concentration alerts, max drawdown, volatility, and benchmark Beta.
+- **AI Workflow & Explainable Recommendations** with 4 distinct card categories and strict non-execution guardrails.
+- **Internal Operations Dashboard** monitoring uptime, latency, MCP tool telemetry, and feedback.
+- **Compliance & Regulatory Audit Console** with prompt hashes, model versions, and reviewer sign-offs.
+- **Documentation & Video Suite** (`docs/architecture.md`, `docs/api_documentation.md`, `docs/mcp_tooling.md`, `docs/demo_script.md`, `docs/video/video.mp4`).
+- **Live Video Walkthrough Demo** (linked above in the README + [Google Drive link](https://drive.google.com/file/d/1VoxiG_ixopPTqTrXDg_Vc5u6X_9xqfun/view?usp=sharing)).
+- **Production Cloud Deployment** ([Live on Render](https://zerodha-ai-financial-intelligence-welg.onrender.com/)).
+- **Automated Test Suite** (`tests/`) with unit and edge-case coverage.
