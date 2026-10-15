@@ -200,13 +200,10 @@ export default function Dashboard({
   const recommendationCards = insightsObj?.recommendation_cards || insightsObj?.insights?.recommendation_cards || [];
   const confidenceScore = insightsObj?.confidence_score || insightsObj?.insights?.confidence_score || 0.95;
   const promptHash = data?.prompt_hash || insightsObj?.prompt_hash || '';
-<<<<<<< HEAD
   // Live API responses nest metrics under `analytics`; demo fixtures keep them
   // at the root. Only permit root-level metrics when demo mode was explicitly selected.
   const analyticsObj = data?.analytics || (isDemoMode ? data : {});
   const summaryObj = analyticsObj?.summary;
-=======
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
 
   return (
     <div className="w-full max-w-7xl mx-auto space-y-6 animate-fadeIn">
@@ -237,34 +234,20 @@ export default function Dashboard({
       </div>
 
       {/* Dynamic Benchmark Relative Performance Card */}
-<<<<<<< HEAD
       <RelativePerformanceCard
         analytics={analyticsObj}
         benchmark={selectedBenchmark}
         summary={summaryObj}
-=======
-      <RelativePerformanceCard 
-        analytics={data?.analytics}
-        benchmark={selectedBenchmark}
-        summary={data?.summary}
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
       />
 
       {/* 1. Investor Portfolio Intelligence Hub (Executive Summary) */}
       <div className="space-y-3.5">
-<<<<<<< HEAD
         <ExecutiveSummary
           insights={insightsObj}
           metadata={analyticsObj?.metadata}
           summary={summaryObj}
           marketDataAsOf={analyticsObj?.metadata?.market_data_as_of}
           isDemoMode={isDemoMode}
-=======
-        <ExecutiveSummary 
-          insights={insightsObj} 
-          metadata={data?.metadata} 
-          summary={data?.summary} 
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
         />
         
         <InsightFeedbackBar 
@@ -276,15 +259,9 @@ export default function Dashboard({
       {/* 2. Risk & Exposure Panel */}
       <RiskAlertBanner 
         riskAnalysis={riskAnalysis} 
-<<<<<<< HEAD
         riskMetrics={analyticsObj?.risk_metrics}
         sectorAllocation={analyticsObj?.sector_allocation}
         concentrationAlerts={analyticsObj?.concentration_alerts}
-=======
-        riskMetrics={data?.risk_metrics || data?.analytics?.risk_metrics}
-        sectorAllocation={data?.sector_allocation || data?.analytics?.sector_allocation}
-        concentrationAlerts={data?.concentration_alerts || data?.analytics?.concentration_alerts}
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
       />
 
       {/* 3. Market Movement Explainer (Key Performance Drivers Grid) */}
@@ -307,11 +284,7 @@ export default function Dashboard({
             <PerformanceDriverCard 
               key={idx} 
               driver={driver} 
-<<<<<<< HEAD
               newsData={analyticsObj?.holdings_news}
-=======
-              newsData={data?.holdings_news || data?.analytics?.holdings_news}
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
             />
           ))}
         </div>

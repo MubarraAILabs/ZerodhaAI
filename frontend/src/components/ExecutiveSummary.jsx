@@ -1,16 +1,11 @@
 import React from 'react';
 import { TrendingUp, TrendingDown, User, ShieldAlert, Sparkles, Wallet, PieChart, Activity } from 'lucide-react';
 
-<<<<<<< HEAD
 export default function ExecutiveSummary({ insights, metadata, summary, marketDataAsOf, isDemoMode = false }) {
-=======
-export default function ExecutiveSummary({ insights, metadata, summary }) {
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
   // Extract executive summary from insights payload or top-level
   const execSummaryText = insights?.executive_summary || insights?.insights?.executive_summary || "Portfolio analysis ready.";
   
   // Extract numerical metrics
-<<<<<<< HEAD
   const investorName = metadata?.investor_name || "Investor";
   const portfolioId = metadata?.portfolio_id || "Unknown portfolio";
   const riskProfile = metadata?.risk_profile || "Not specified";
@@ -27,18 +22,6 @@ export default function ExecutiveSummary({ insights, metadata, summary }) {
   const pnlPct = hasValidSummary ? Number(summary.pnl_pct) : null;
 
   const isPositivePnl = hasValidSummary && totalPnl >= 0;
-=======
-  const investorName = metadata?.investor_name || "Mubarra Shaikh";
-  const portfolioId = metadata?.portfolio_id || "PORT-1001";
-  const riskProfile = metadata?.risk_profile || "Aggressive Growth";
-
-  const totalInvested = summary?.total_invested ?? 450000;
-  const totalCurrentValue = summary?.total_current_value ?? 582400;
-  const totalPnl = summary?.total_pnl ?? (totalCurrentValue - totalInvested);
-  const pnlPct = summary?.pnl_pct ?? (totalInvested ? ((totalPnl / totalInvested) * 100).toFixed(2) : 0);
-
-  const isPositivePnl = totalPnl >= 0;
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
 
   const formatINR = (val) => {
     return new Intl.NumberFormat('en-IN', {
@@ -82,7 +65,6 @@ export default function ExecutiveSummary({ insights, metadata, summary }) {
         </div>
       </div>
 
-<<<<<<< HEAD
       {!hasValidSummary && (
         <div role="alert" className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200">
           Portfolio metrics were not returned by the backend. These cards are hidden rather than showing sample values.
@@ -91,8 +73,6 @@ export default function ExecutiveSummary({ insights, metadata, summary }) {
 
       {hasValidSummary && (
       <>
-=======
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
       {/* AI Plain Language Executive Summary */}
       <div className="bg-[var(--bg-input)]/50 border border-[#818cf8]/25 rounded-xl p-4 sm:p-5 relative">
         <div className="flex items-start gap-3.5">
@@ -134,13 +114,9 @@ export default function ExecutiveSummary({ insights, metadata, summary }) {
           <div className="text-xl font-bold text-[var(--text-primary)] font-mono tracking-tight">
             {formatINR(totalCurrentValue)}
           </div>
-<<<<<<< HEAD
           <div className="text-[11px] text-[#38bdf8] font-medium">
             {isDemoMode ? "Demo valuation" : (marketDataAsOf ? `Latest market observation: ${new Date(marketDataAsOf).toLocaleString()}` : "Latest available market data")}
           </div>
-=======
-          <div className="text-[11px] text-[#38bdf8] font-medium">Real-time valuation</div>
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
         </div>
 
         {/* Total Net P&L */}
@@ -171,11 +147,8 @@ export default function ExecutiveSummary({ insights, metadata, summary }) {
           <div className="text-[11px] text-[var(--text-muted)]">Cumulative Return</div>
         </div>
       </div>
-<<<<<<< HEAD
       </>
       )}
-=======
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
     </section>
   );
 }

@@ -11,7 +11,6 @@ export default function RelativePerformanceCard({ analytics, benchmark = '^NSEI'
   const benchmarkName = BENCHMARK_MAP[benchmark] || benchmark;
   
   // Extract or calculate portfolio P&L % and benchmark return
-<<<<<<< HEAD
   const portfolioReturnValue = summary?.pnl_pct ?? analytics?.summary?.pnl_pct;
   const benchmarkReturnValue = analytics?.benchmark_metrics?.benchmark_return_pct;
   const alphaValue = analytics?.benchmark_metrics?.alpha_vs_benchmark;
@@ -25,13 +24,6 @@ export default function RelativePerformanceCard({ analytics, benchmark = '^NSEI'
   const benchmarkReturn = hasBenchmarkComparison ? Number(benchmarkReturnValue) : null;
   const relativeAlpha = hasBenchmarkComparison ? Number(alphaValue) : null;
   const isOutperforming = relativeAlpha !== null && relativeAlpha >= 0;
-=======
-  const portfolioReturn = summary?.pnl_pct ?? analytics?.portfolio_metrics?.pnl_pct ?? 29.42;
-  const benchmarkReturn = analytics?.benchmark_metrics?.benchmark_return_pct ?? 14.80;
-  const relativeAlpha = analytics?.benchmark_metrics?.alpha_vs_benchmark ?? (portfolioReturn - benchmarkReturn);
-
-  const isOutperforming = relativeAlpha >= 0;
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
 
   return (
     <div className="surface-card p-4 sm:p-5 border-l-2 border-l-[#6366f1] transition-all">
@@ -55,7 +47,6 @@ export default function RelativePerformanceCard({ analytics, benchmark = '^NSEI'
 
         {/* Relative Metric Card Pill */}
         <div className="flex items-center gap-3">
-<<<<<<< HEAD
           {!hasBenchmarkComparison ? (
             <div className="text-right text-xs text-[var(--text-muted)]">
               {hasPortfolioReturn
@@ -64,8 +55,6 @@ export default function RelativePerformanceCard({ analytics, benchmark = '^NSEI'
               <p className="mt-1">Benchmark comparison unavailable</p>
             </div>
           ) : (
-=======
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
           <div className="text-right">
             <div className="flex items-center justify-end gap-1.5 font-bold text-base sm:text-lg font-mono">
               {isOutperforming ? (
@@ -91,24 +80,15 @@ export default function RelativePerformanceCard({ analytics, benchmark = '^NSEI'
               Portfolio {portfolioReturn >= 0 ? `+${portfolioReturn.toFixed(2)}%` : `${portfolioReturn.toFixed(2)}%`} · Index {benchmarkReturn >= 0 ? `+${benchmarkReturn.toFixed(2)}%` : `${benchmarkReturn.toFixed(2)}%`}
             </p>
           </div>
-<<<<<<< HEAD
           )}
 
           {hasBenchmarkComparison && <div className={`w-9 h-9 rounded-xl flex items-center justify-center border shrink-0 ${
-=======
-
-          <div className={`w-9 h-9 rounded-xl flex items-center justify-center border shrink-0 ${
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
             isOutperforming
               ? 'bg-[#10b981]/12 border-[#10b981]/25 text-[#10b981]'
               : 'bg-[#f43f5e]/12 border-[#f43f5e]/25 text-[#f43f5e]'
           }`}>
             {isOutperforming ? <Award className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
-<<<<<<< HEAD
           </div>}
-=======
-          </div>
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
         </div>
 
       </div>
