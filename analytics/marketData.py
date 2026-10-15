@@ -27,7 +27,6 @@ def normalize_tickers(symbols: list[str], default_exchange: str = "NS") -> list[
     """Applies normalize_symbol across a list of raw ticker strings."""
     return [normalize_symbol(s, default_exchange=default_exchange) for s in symbols if s]
 
-<<<<<<< HEAD
 def _read_cache() -> pd.DataFrame | None:
     """Read the local cache safely; return None if it cannot be read."""
     if not os.path.exists(CACHE_FILE):
@@ -141,50 +140,6 @@ def fetch_market_data(
         raise RuntimeError(
             "Unable to fetch complete market data and no complete cache is available."
         ) from exc
-=======
-def fetch_market_data(
-    tickers: list[str], 
-    benchmark: str = "^NSEI", 
-    period: str = "6mo", 
-    force_refresh: bool = False
-) -> pd.DataFrame:
-    """
-    Fetches historical closing prices for portfolio holdings and a configurable market benchmark.
-    Supports ^NSEI (NIFTY 50), ^BSESN (SENSEX), ^NSEBANK (Bank NIFTY), etc.
-    Uses a local CSV cache unless force_refresh is True.
-    """
-    normalized_tickers = normalize_tickers(tickers)
-    normalized_benchmark = normalize_symbol(benchmark)
-    
-    # Always include the benchmark index
-    all_tickers = list(set(normalized_tickers + [normalized_benchmark]))
-    
-    # Check if a fresh cache exists when force_refresh is False
-    if not force_refresh and os.path.exists(CACHE_FILE):
-        file_age = time.time() - os.path.getmtime(CACHE_FILE)
-        if file_age < CACHE_EXPIRY_SECONDS:
-            print("[MarketData] Returning cached market data...")
-            cached_df = pd.read_csv(CACHE_FILE, index_col=0, parse_dates=True)
-            if all(col in cached_df.columns for col in all_tickers):
-                return cached_df
-
-    print(f"[MarketData] Fetching fresh price data from Yahoo Finance (force_refresh={force_refresh}) for: {all_tickers}")
-    try:
-        # Download historical closing prices
-        data = yf.download(all_tickers, period=period, progress=False)["Close"]
-        
-        # Ensure data directory exists and save to local cache
-        os.makedirs(CACHE_DIR, exist_ok=True)
-        data.to_csv(CACHE_FILE)
-        
-        return data
-    except Exception as e:
-        print(f"[MarketData Error] Failed to fetch market data: {e}")
-        # Return cached file if available as fallback, even if expired
-        if os.path.exists(CACHE_FILE):
-            return pd.read_csv(CACHE_FILE, index_col=0, parse_dates=True)
-        raise e
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
 
 def fetch_ticker_news(ticker: str) -> list[dict]:
     """
