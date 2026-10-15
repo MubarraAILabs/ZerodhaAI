@@ -14,11 +14,7 @@ def get_db_connection():
     Attempts connection to NeonDB PostgreSQL using NEON_DATABASE_URL.
     If unavailable or fails, returns an SQLite connection as fallback.
     """
-<<<<<<< HEAD
-    db_url = os.getenv("NEON_DATABASE_URL") or os.getenv("DATABASE_URL")
-=======
     db_url = os.getenv("NEON_DATABASE_URL")
->>>>>>> 9e9f5b6002a033c1a6ff902a331595c2b984dd13
     if db_url and db_url.startswith("postgres"):
         try:
             conn = psycopg2.connect(db_url)
